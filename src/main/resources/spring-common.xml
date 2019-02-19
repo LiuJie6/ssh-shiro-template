@@ -18,6 +18,8 @@
             <list>
                 <value>classpath:jdbc.properties</value>
                 <value>classpath:log4j.properties</value>
+                <value>classpath:resource.properties</value>
+                <value>classpath:shiro.properties</value>
             </list>
         </property>
     </bean>

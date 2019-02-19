@@ -24,8 +24,8 @@ import javax.annotation.Resource;
  */
 
 
-@RestController("identityController")
-@RequestMapping("api/auth")
+@RestController("identityControllerTest")
+@RequestMapping("api/auth/test")
 public class IdentityController {
 
     private final static Logger logger = LoggerFactory.getLogger(IdentityController.class);

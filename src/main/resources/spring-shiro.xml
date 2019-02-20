@@ -6,7 +6,7 @@
     <context:component-scan base-package="com.template.shiro"/>
 
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-        <property name="realm" ref="invoiceRealm"/>
+        <property name="realm" ref="MyRealm"/>
     </bean>
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">

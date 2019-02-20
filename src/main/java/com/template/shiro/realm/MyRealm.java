@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
 
 /**
  * Project Name:electronic-invoice
- * File Name:InvoiceRealm
+ * File Name:MyRealm
  * Package Name:com.yk.invoice.shiro.realm
  * Date:2018/12/17
  * Author:zhangju
@@ -38,9 +38,9 @@ import java.util.stream.Collectors;
  * Copyright (c) 2018, 重庆云凯科技有限公司 All Rights Reserved.
  */
 
-@Component("invoiceRealm")
-public class InvoiceRealm extends AuthorizingRealm {
-    private static final Logger logger = LoggerFactory.getLogger(InvoiceRealm.class);
+@Component("MyRealm")
+public class MyRealm extends AuthorizingRealm {
+    private static final Logger logger = LoggerFactory.getLogger(MyRealm.class);
 
     @Resource(name = "accountDao")
     private IAccountDao accountDao;

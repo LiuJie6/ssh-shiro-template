@@ -55,7 +55,7 @@ public class AccountServiceImpl implements IAccountService {
      * @throws Exception 异常
      */
     @Override
-    @RequiresRoles("administrator")
+    //@RequiresRoles("administrator")
     public void createAccount(AccountCreateModel params) throws Exception {
         //UserInfo userInfo = this.userInfoService.getUserInfo();
 

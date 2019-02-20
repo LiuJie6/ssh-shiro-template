@@ -34,6 +34,24 @@
        <filter-name>shiroFilter</filter-name>
        <url-pattern>/*</url-pattern>
      </filter-mapping>
-##（3）实现AuthorizingRealm类（InvoiceRealm.java）
+##（3）实现AuthorizingRealm类（MyRealm.java）
+
+## 调用过程
+### （1）调用login接口时，首先使用UsernamePasswordToken生成登录用户的token
+### （2）通过Subject currentUser = SecurityUtils.getSubject()获取当前登录用户
+### （3）currentUser.login(token);
+### （4）调用MyRealm.java中的doGetAuthenticationInfo()方法进行验证（只要是new SimpleAuthenticationInfo()）
+### （5）调用其他接口时，如果有@RequiresRoles注解，则调用MyRealm.java中的doGetAuthorizationInfo()方法进行授权
+
+
+## 使用@RequiresRoles("administrator")可以对接口进行访问角色限制
+### 相关配置文件必须写在spring-mvc的配置文件（spring-servlet.xml）中，该注解才能在Controller层起作用，
+### 否则只能在Service层起作用
+
+## web.xml文件中的filter使用spring配置文件中的bean：代理——DelegatingFilterProxy类
+### 如项目中的shiroFilter
+
+## 需要注意filterChainDefinitions过滤器中对于路径的配置是有顺序的，当找到匹配的条目之后容器不会再继续寻找。因此带有通配符的路径要放在后面。
+### 如项目中的spring-shiro.xml中的配置
 
 ```

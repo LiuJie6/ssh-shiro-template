@@ -27,9 +27,19 @@
             </value>
         </property>
     </bean>
+
     <bean id="hashedCredentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
         <property name="hashAlgorithmName" value="${hash.algorithm.name}"/>
         <property name="hashIterations" value="${hash.iterations}"/>
     </bean>
+
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor" />
+
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+
 </beans>

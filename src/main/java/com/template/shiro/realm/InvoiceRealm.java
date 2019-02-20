@@ -101,7 +101,7 @@ public class InvoiceRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        //logger.info("开始认证");
+        logger.info("开始认证");
         String accountName = (String) authenticationToken.getPrincipal();
 
         if (accountName == null) {
@@ -118,8 +118,10 @@ public class InvoiceRealm extends AuthorizingRealm {
             logger.info("结束认证");
             throw new AuthenticationException();
         }
+        logger.info("方法：" + this.hashedCredentialsMatcher.getHashAlgorithmName());
+        logger.info("次数：" + this.hashedCredentialsMatcher.getHashIterations());
         this.setCredentialsMatcher(this.hashedCredentialsMatcher);
-        //logger.info("结束认证");
+        logger.info("结束认证");
         return new SimpleAuthenticationInfo(accountModel.getAccountName()
                 , accountModel.getAccountPassword()
                 , ByteSource.Util.bytes(accountModel.getAccountSaltValue())

@@ -9,6 +9,7 @@ import com.template.model.basic.account.AccountModel;
 import com.template.service.auth.role.api.IRoleService;
 import com.template.service.basic.account.api.IAccountService;
 import com.template.service.userinfo.api.IUserInfoService;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Value;
@@ -54,6 +55,7 @@ public class AccountServiceImpl implements IAccountService {
      * @throws Exception 异常
      */
     @Override
+    @RequiresRoles("administrator")
     public void createAccount(AccountCreateModel params) throws Exception {
         //UserInfo userInfo = this.userInfoService.getUserInfo();
 

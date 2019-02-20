@@ -46,7 +46,8 @@ public class UserInfoServiceImpl implements IUserInfoService {
         if(sessionId == null){
             throw new Exception("sessionId不存在");
         }
-
+        String loginMsg = currentUser.getPrincipal().toString();
+        System.out.println(loginMsg);
         return null;
     }
 }

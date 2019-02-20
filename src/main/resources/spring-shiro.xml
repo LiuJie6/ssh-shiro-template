@@ -21,6 +21,7 @@
             <value>
                 /api/auth/login = anon
                 /api/auth/logout = anon
+                <!--/api/manage/account/create = anon-->
                 /api/** = authc
                 /** = anon
             </value>

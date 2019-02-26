@@ -40,7 +40,7 @@
 ### （1）调用login接口时，首先使用UsernamePasswordToken生成登录用户的token
 ### （2）通过Subject currentUser = SecurityUtils.getSubject()获取当前登录用户
 ### （3）currentUser.login(token);
-### （4）调用MyRealm.java中的doGetAuthenticationInfo()方法进行验证（只要是new SimpleAuthenticationInfo()）
+### （4）调用MyRealm.java中的doGetAuthenticationInfo()方法进行验证（主要是new SimpleAuthenticationInfo()）
 ### （5）调用其他接口时，如果有@RequiresRoles注解，则调用MyRealm.java中的doGetAuthorizationInfo()方法进行授权
 
 

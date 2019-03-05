@@ -48,6 +48,12 @@
 ### 相关配置文件必须写在spring-mvc的配置文件（spring-servlet.xml）中，该注解才能在Controller层起作用，
 ### 否则只能在Service层起作用
 
+## 关于登录验证与授权验证
+### 在自定义的MyRealm中：
+### 登录验证doGetAuthenticationInfo()方法会返回一个new SimpleAuthenticationInfo(),该方法的第一个参数为param（Object）
+### 授权验证doGetAuthorizationInfo(PrincipalCollection principals)中，principals.getPrimaryPrincipal()得到的就是param
+
+
 ## web.xml文件中的filter使用spring配置文件中的bean：代理——DelegatingFilterProxy类
 ### 如项目中的shiroFilter
 

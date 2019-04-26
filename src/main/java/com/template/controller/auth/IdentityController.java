@@ -1,7 +1,9 @@
 package com.template.controller.auth;
 
+import com.template.dao.auth.accountrole.api.IAccountRoleDao;
 import com.template.dao.basic.account.api.IAccountDao;
 import com.template.model.api.auth.LoginModel.LoginModel;
+import com.template.model.auth.AccountRoleModel;
 import com.template.model.basic.account.AccountModel;
 import com.template.model.response.ResponseResult;
 import com.template.model.state.State;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -61,8 +64,10 @@ public class IdentityController {
                 accountModel.setAccountName(params.getAccountName());
                 accountModel = this.accountDao.queryModel(accountModel);
                 if (accountModel != null) {
+                   // List<AccountRoleModel> list =
                     data.put("accountName", accountModel.getAccountName());
                     data.put("accountId", accountModel.getAccountId());
+                    data.put("jsessionId",currentUser.getSession().getId());
                     responseResult = new ResponseResult(true, State.SUCCESS.getCode(), "", data);
                 } else {
                     responseResult = new ResponseResult(false, State.FAILURE.getCode(), "用户名或密码错误");
